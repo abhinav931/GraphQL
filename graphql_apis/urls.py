@@ -18,9 +18,13 @@ from django.urls import path
 from graphene_django.views import GraphQLView
 from cakeshop.schema import schema
 from cakeshop.schema1 import schema1
+from cakeshop.schema2 import schema2
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
     path("cakeshop/", GraphQLView.as_view(graphiql=True, schema=schema)),
     path("cakeshop/filters/", GraphQLView.as_view(graphiql=True, schema=schema1)),
+    path("cakeshop/pagination/", GraphQLView.as_view(graphiql=True, schema=schema2)),
 ]

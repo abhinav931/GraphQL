@@ -206,3 +206,72 @@ related fields filter
   }
 }
 '''
+
+# pagination queries
+
+"""
+To visit next page
+{
+  cakes(first: 2, after: "YXJyYXljb25uZWN0aW9uOjI=") {
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        name
+        price
+      }
+    }
+  }
+}
+"""
+
+"""
+To visit previous page
+{
+  cakes(first: 2, before: "YXJyYXljb25uZWN0aW9uOjI=") {
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        name
+        price
+      }
+    }
+  }
+}
+
+"""
+"""
+First time fetching
+{
+  cakes(first: 2) {
+    pageInfo {
+      startCursor
+      endCursor
+      hasNextPage
+      hasPreviousPage
+    }
+    edges {
+      cursor
+      node {
+        id
+        name
+        price
+      }
+    }
+  }
+}
+
+"""
